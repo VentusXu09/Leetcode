@@ -1,3 +1,5 @@
+package sameTree;
+
 /**
  * Leetcode 100. Same Tree
  * Created by Ventus on 2019/11/7 4:41 PM

@@ -5,9 +5,9 @@ package LongestSubstringWORepeatingLetters;
  * Created by Ventus on 2019/12/24 10:38 PM
  */
 
-public class Solution {
-    public static void main() {
-        System.out.println(lengthOfLongestSubstring("bbbbb"));
+public class LongestSubstringWORepeatingLetters {
+    public static void main(String[] args) {
+        System.out.println(lengthOfLongestSubstring(""));
     }
 
     public static int lengthOfLongestSubstring(String s) {
@@ -15,16 +15,17 @@ public class Solution {
             return 0;
         }
 
-        int result = 0, count = 0;
+        int result = 1, count = 0;
 
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 1; i <= s.length(); i++) {
             String sub = s.substring(i-count-1, i-1);
-            String s1 = s.substring(i, i);
+            String s1 = s.substring(i-1, i);
             if (!sub.contains(s1)) {
                 count++;
                 if (count > result) result = count;
             } else {
-                count = i - sub.indexOf(s.substring(i+1,i+1));
+                int j = sub.indexOf(s1);
+                count = count - j;
             }
         }
 
